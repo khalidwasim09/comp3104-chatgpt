@@ -1,3 +1,1 @@
-Devops starts with BASH
-Pipelines connect code to production
-Hello from master branch
+Hello Devops
