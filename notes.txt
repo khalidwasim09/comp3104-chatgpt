@@ -1,0 +1,2 @@
+Devops starts with BASH
+Pipelines connect code to production
