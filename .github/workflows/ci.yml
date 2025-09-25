@@ -21,8 +21,9 @@ jobs:
           echo "Files in repo:"
           ls -la
 
-      - name: Sanity check
+       - name: Sanity check
         run: |
           echo "Running CI sanity check"
           test -f readme.txt
           echo "OK"
+
