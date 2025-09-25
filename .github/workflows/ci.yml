@@ -1,29 +1,23 @@
 name: CI
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Show environment
-        run: |
-          echo "OS Info:"
-          uname -a
-          echo "Files in repo:"
-          ls -la
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
 
-       - name: Sanity check
-        run: |
-          echo "Running CI sanity check"
-          test -f readme.txt
-          echo "OK"
+    - name: Install pytest
+      run: pip install pytest
+
+    - name: Run tests
+      run: pytest
 
