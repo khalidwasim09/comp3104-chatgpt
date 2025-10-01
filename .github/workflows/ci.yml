@@ -39,12 +39,12 @@ jobs:
     - name: Notify result 
       if: always()
       run: | 
-	echo "Build finished with status ${{ job.status}}" 
+       echo "Build finished with status ${{ job.status}}" 
 
     -name: Run tests
-     run: pytest
+    run: pytest
 
-    -name: Final Status 
+    -name: Final CI Status 
      if: always()
      run: echo "Final CI Status: ${{ job.status}}"
 
