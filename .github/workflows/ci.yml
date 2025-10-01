@@ -35,4 +35,8 @@ jobs:
     - name: Notify result
       if: always()   
       run: echo "Build finished with status ${{ job.status }}"
-
+    
+    - name: Notify result 
+      if: always()
+      run: | 
+	echo "Build finished with status ${{ job.status}}"
