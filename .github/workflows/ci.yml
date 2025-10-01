@@ -21,3 +21,5 @@ jobs:
     - name: Run tests
       run: pytest
 
+    - name: Verify third.txt exists
+      run: cat third.txt
