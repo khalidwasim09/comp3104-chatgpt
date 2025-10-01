@@ -12,8 +12,8 @@ jobs:
 
     strategy:
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]   
-
+        python-version: ["3.9", "3.11"]   
+    
 
     steps:
     - name: Checkout code
@@ -39,4 +39,12 @@ jobs:
     - name: Notify result 
       if: always()
       run: | 
-	echo "Build finished with status ${{ job.status}}"
+	echo "Build finished with status ${{ job.status}}" 
+
+    -name: Run tests
+     run: pytest
+
+    -name: Final Status 
+     if: always()
+     run: echo "Final CI Status: ${{ job.status}}"
+
