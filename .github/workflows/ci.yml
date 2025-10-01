@@ -48,3 +48,8 @@ jobs:
      if: always()
      run: echo "Final CI Status: ${{ job.status}}"
 
+    - name: Notify result
+      if: always()   # ensures it runs even if previous steps fail
+      run: |
+        echo "Build finished with status ${{ job.status }}"
+
