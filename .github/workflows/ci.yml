@@ -2,17 +2,18 @@ name: CI
 
 on:
   push:
-    branches: [ "master" ]   # Run workflow on every push to master
+    branches: [ "master" ]  
   pull_request:
-    branches: [ "master" ]   # Also run on pull requests targeting master
+    branches: [ "master" ]   
 
 jobs:
   build:
-    runs-on: ubuntu-latest   # GitHub runner environment
+    runs-on: ubuntu-latest   
 
     strategy:
-      matrix:                # Matrix = run in parallel with different versions
-        python-version: [3.9, 3.10, 3.11]
+      matrix:
+        python-version: [3.9, 3.10, 3.11]   # ✅ Correct versions
+
 
     steps:
     - name: Checkout code
@@ -32,6 +33,6 @@ jobs:
       run: pytest tests
 
     - name: Notify result
-      if: always()   # Always run this step, even if build fails
+      if: always()   
       run: echo "Build finished with status ${{ job.status }}"
 
