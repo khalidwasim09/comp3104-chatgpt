@@ -29,3 +29,6 @@ jobs:
       run: |
         pytest tests/test_sample.py
 
+	- name: Final Status
+	  if: always() 
+	  run: echo "CI finished with status ${{job.status}}"
